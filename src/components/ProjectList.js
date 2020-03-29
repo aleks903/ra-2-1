@@ -5,16 +5,14 @@ export default function ProjectList(props) {
   const projectColumn = [];
   const columns = 3;
   const lengthArr = Math.round(projects.length / columns);
-  for (let i = 0; i < columns; i += 1) {
-    projectColumn.push(projects.slice(lengthArr * i, lengthArr * (i + 1)));
+  for (let itemColumn = 0; itemColumn < columns; itemColumn += 1) {
+    projectColumn.push(projects.slice(lengthArr * itemColumn, lengthArr * (itemColumn + 1)));
   }
-
-  console.log(projectColumn);
 
   return (
     <div className="project-list">
-      {projectColumn.map(o => <div className="column">
-        {o.map(a => <img src={a.img} />)}
+      {projectColumn.map(column => <div className="column">
+        {column.map(a => <img src={a.img} />)}
       </div>)}
     </div>
   );
